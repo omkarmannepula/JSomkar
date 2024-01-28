@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Local Storage Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <input type="text" id="dataInput" placeholder="Enter">
+  <button id="saveButton">Save to Local Storage</button>
+  <button id="retrieveButton">Retrieve from Local Storage</button>
+  <div id="output"></div>
+
+  <script>
+    // Save data to localStorage
+    $('#saveButton').on('click', function() {
+      var data = $('#dataInput').val();
+      localStorage.setItem('myData', data);
+      $('#dataInput').val('');
+    });
+
+    // Retrieve data from localStorage
+    $('#retrieveButton').on('click', function() {
+      var retrievedData = localStorage.getItem('myData');
+      $('#output').text('Retrieved Data: ' + retrievedData);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>MCUBE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="search3.css">
+</head>
+<body>
+
+<h1 align="center">MCUBE</h1>
+
+<div class="row">
+    <div class="col">
+        <center>
+            <input id="searchInput" class="form-control" type="text" placeholder="Search Here..">
+        </center>
+    </div>
+</div>
+
+<center>
+    <table class="table" border="2">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        </tbody>
+    </table>
+</center>
+
+<script>
+    var myArray = [
+        {'name':'Sudheer', 'company':'VMC Tech', 'location': 'Banglore'},
+        {'name':'Harish', 'company':'VMC Tech', 'location':'Banglore'},
+        {'name':'Narun kumar', 'company':'VMC Tech', 'location':'Banglore'},
+        {'name':'Akshay kumar', 'company':'VMC Tech', 'location':'Banglore'},
+        {'name':'omkar', 'company':'VMC Tech', 'location':'Banglore'},
+    ];
+
+    function buildTable(data) {
+        var table = $('#myTable');
+        table.empty(); // Clear existing table content
+
+        for (var i = 0; i < data.length; i++) {
+            var row = `<tr>
+                            <td>${data[i].name}</td>
+                            <td>${data[i].company}</td>
+                            <td>${data[i].location}</td>
+                      </tr>`;
+            table.append(row);
+        }
+    }
+
+
+     // Initial table build
+     buildTable(myArray);
+     
+     function searchTable(value, data) {
+        var filteredData = [];
+        for (var i = 0; i < data.length; i++) {
+            var name = data[i].name.toLowerCase();
+            if (name.includes(value.toLowerCase())) {
+                filteredData.push(data[i]);
+            }
+        }
+        return filteredData;
+    }
+    $('#searchInput').on('keypress', function() {
+        var value = $(this).val();
+        console.log('value:', value);
+        var data = searchTable(value, myArray);
+        buildTable(data);
+    });
+
+
+    
+   
+</script>
+
+</body>
+</html>

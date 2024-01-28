@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Form Data with jQuery Ajax</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <h1>Form Data Display</h1>
+
+  <form id="myForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+
+    <button type="button" onclick="displayFormData()">Submit</button>
+  </form>
+
+  <div id="display-container">
+    <!-- Displayed form data will be shown here -->
+  </div>
+
+  <script>
+    function displayFormData() {
+      // Get form data
+      var username = $('#username').val();
+      var password = $('#password').val();
+
+      // Display form data
+      var displayContent = '<p>Username: ' + username + '</p><p>Password: ' + password + '</p>';
+      $('#display-container').html(displayContent);
+    }
+  </script>
+
+</body>
+</html>

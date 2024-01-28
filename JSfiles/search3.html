@@ -1,0 +1,80 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="search3.css">
+<!-- <style>
+    th{ 
+        color:#fff;
+            }
+</style>   -->
+<h1 align="center">MCUBE</h1>
+<div class="row">
+    <div class="col">
+        <center>
+    <input  id="searchInput" class="form-control" type="text" placeholder="search Here">
+</center>
+    </input>
+    </div>
+
+</div>
+
+<center><table class="table" border="2">
+    <tr>
+        <th>Name</th> 
+       <th>company</th>
+       <th>location</th>
+    </tr> 
+
+    <tbody id="myTable">
+        
+    </tbody>
+</table> </center>
+
+<script>
+	var myArray = [
+	    {'name':'Sudheer', 'company':'VMC Tech', 'location': 'Banglore'},
+	    {'name':'Harish', 'company':'VMC Tech', 'location':'Banglore'},
+	    {'name':'Narun kumar', 'company':'VMC Tech', 'location':'Banglore'},
+	    {'name':'Akshay kumar', 'company':'VMC Tech', 'location':'Banglore'},
+	    {'name':'omkar', 'company':'VMC Tech', 'location':'Banglore'},
+	]
+    $('#searchInput').on('input',function(){
+        var value =$(this).val()
+        console.log('value:', val)
+        var data = searchTable(value, myArray)
+        buildTable()
+    })	
+ 
+
+
+	buildTable(myArray)
+    function searchTable(value,data){
+        var filteredData = []
+        for( var i = 0; i< data.length ; i++){
+          value = value.toLowerCase;
+          var name = data[i].name.toLowerCase()
+          if(name.includes(value)){
+            filteredData.push(data[i])
+          }
+        }
+        return filteredData
+    }    
+
+           
+
+	function buildTable(data){
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++){
+			var row = `<tr>
+							<td>${data[i].name}</td>
+							<td>${data[i].company}</td>
+							<td>${data[i].location}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>

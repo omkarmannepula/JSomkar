@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example: Remembering User Name</title>
+</head>
+<body>
+
+  <h2>Enter Your Name</h2>
+
+  <!-- Input field for the user's name -->
+  <label for="nameInput">Name:</label>
+  <input type="text" id="nameInput">
+  <button onclick="rememberName()">Remember My Name</button>
+
+  <!-- Display greeting with the user's name -->
+  <div id="greeting"></div>
+
+  <script>
+    // Function to remember the user's name using a cookie
+    function rememberName() {
+      var name = document.getElementById("nameInput").value;
+
+      if (name.trim() !== "") {
+        // Store the name in a cookie with a one-week expiration
+        var expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 7);
+        document.cookie = `userName=${encodeURIComponent(name)}; expires=${expirationDate.toUTCString()}; path=/`;
+
+        // Display a greeting with the user's name
+        displayGreeting(name);
+      }
+    }
+
+    // Function to get and display the user's name from the cookie
+    function displayGreeting(name) {
+      var greetingElement = document.getElementById("greeting");
+
+      // Get the user's name from the cookie
+      var storedName = getCookie("userName");
+
+      if (storedName) {
+        greetingElement.innerHTML = `Hello, ${decodeURIComponent(storedName)}! Welcome back.`;
+      } else {
+        greetingElement.innerHTML = "Hello! Nice to meet you.";
+      }
+    }
+
+    // Function to get a specific cookie by name
+    function getCookie(name) {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    }
+
+    // Display the greeting with the user's name on page load
+    displayGreeting();
+  </script>
+
+</body>
+</html>
+

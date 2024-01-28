@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="html.css">
+  <title>MCUBE.com</title>
+</head>
+<body bgcolor="skyblue">
+  <h1 align="center" font="30">VMC TECHNOLOGIES</h1>
+  <style>
+    .my-button {
+      display: flex;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #d4d582;
+      align-items: center;
+      margin-top: 8%;
+    }
+
+    .username {
+      display: flex;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #d0d0b0;
+      align-items: center;
+      margin-top: 2%;
+    }
+
+    .password {
+      display: flex;
+      justify-content: center;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #d0d0b0;
+      align-items: center;
+      margin-top: 2%;
+    }
+  </style>
+
+  <div class="form-details">
+    <form class="login-form" .onsubmit="myfunc(event)">
+      <center>
+        <input class="username" type="text" id="username" placeholder="username">
+      </center>
+      <center>
+        <input class="password" id="password" type="password" placeholder="Password..">
+      </center>
+      <center>
+        <button class="my-button" type="submit">SUBMIT</button>
+      </center>
+    </form>
+  </div>
+
+  <script>
+    function myfunc(event) {
+      event.preventDefault();
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+    // Function to make a simple GET request using the Fetch API
+    function fetchData() {
+      // Replace this URL with your desired endpoint or use a placeholder API
+      fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => {
+          // Check if the request was successful (status code 200-299)
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          // Parse the response body as JSON
+          return response.json();
+        })
+        .then(data => {
+          // Handle the parsed data
+          console.log('Data received:', data);
+        })
+        .catch(error => {
+          // Handle errors during the fetch operation
+          console.error('Fetch error:', error);
+        });
+    }
+
+    // Call the fetchData function when the page loads
+    fetchData();
+    }
+  </script>
+</body>
+</html>

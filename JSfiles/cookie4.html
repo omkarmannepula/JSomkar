@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+  <link rel="stylesheet" href="html.css">
+  <title>MCUBE.com</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body bgcolor="skyblue"> 
+    
+    <h1 align="center" font="30"> VMC TECHNOLOGIES</h1>
+    <style>
+      .my-button {
+        display:  block;
+        
+        padding: 10px 20px; 
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        align-items: center;
+        border-radius: 4px;
+        background-color: rgb(143, 208, 140);
+        margin-top: 2%;
+  }
+.username{
+display: flex;
+        /* justify-content: center; */
+        padding: 10px 20px; 
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        background-color: #d4d582;
+        align-items: center;
+        margin-top: 8%;
+        display: block;
+}
+.password{
+display: flex;
+        justify-content: center;
+        padding: 10px 20px; 
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        background-color: #d0d0b0;
+        align-items: center;
+        margin-top: 2%;
+        display: block;     
+}
+</style>
+
+<form id="form">
+    <center>
+    <!-- <label for="username">Username:</label> -->
+
+    <input class="username" type="text" id="username" name="username" placeholder="username" >
+      
+</center>
+  <center>
+    <!-- <label for="password">Password:</label> -->
+    <input class="password" type="password" id="password"  name="password" placeholder=" Password..">
+  </center>
+  <center>
+    <button class="my-button"  value="Submit"  type="submit" onclick="storeAndDisplayFormData()">Submit</button>
+    
+  </center>
+</form>
+                <!--                        Cookies Data                -->
+   <!-- <script>    
+    function storeAndDisplayFormData(){
+     
+        var username = $(`#username`).val();
+        var password = $(`#password`).val();
+        //  console.log(username = $(`#username`).val(), password = $(`#password`).val())
+       
+         document.cookie = 'username=' + username + '; expires=sun, 1 january 2030 12:00:00 UTC; path=/'
+   
+         document.cookie = 'password=' + password + '; expires=sun, 1 january 2030 12:00:00 UTC; path=/';
+   
+    
+    window.onload = function(){
+    var user = ("username");
+    var pass = password;
+    let cookie = {};
+  document.cookie.split(';').forEach(function(el) {
+    let [key,value] = el.split('=');
+    cookie[key.trim()] = value;
+  })
+  // console.log(cookie[username],"cookie done")
+  return cookie[username];
+
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = password; 
+      //  console.log(document.getElementById('username').value, "cookie is working")
+      }
+    }
+  </script> -->
+
+ <!-- <script>  
+    function storeAndDisplayFormData(){
+        let username = document.getElementById("username");
+        let password = document.getElementById("password");
+       
+
+        today = new Date();
+        var expire = new Date();
+        // expire.setTime(today.getTime() + 3600000*24*15);
+        
+
+        // document.cookie = "name="+user+";path=/" + ";expires="+expire.toUTCString();
+        // document.cookie = "password="+encodeURI(pass)+";path=/" + ";expires="+expire.toUTCString();
+        document.cookie = "username="+username;
+        document.cookie = "password="+password ;
+       
+    }
+
+        window.onload = function(){
+      // var usern = user;
+        //  var passw = pass;
+
+        document.getElementById("username").value;
+        document.getElementById("password").value; 
+
+    }    
+  </script>  -->
+    <!-- Cookies Data -->
+     <!-- <script> 
+  document.getElementById('form').addEventListener('submit',(e) => {
+    e.preventDefault()
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+
+    if( username == " " || password == " " ){
+            
+        alert("please enter the values");
+    }else{
+        setCookie(username,password,365)
+    }    
+     
+})
+
+         function setCookie(username,password,time){
+           
+            let d = new Date ();
+
+            d.setTime(d.getTime() + ( time * 24 * 60 * 60 * 1000 ) )
+ 
+            let expires = "expires=" + d.toUTCString()
+
+
+            document.cookie = `${username}=${value};${expires};path='/'`
+            window.location.reload()
+         }
+</script>-->
+ <!-- <script src="cookie4.js"></script> -->
+<script>
+  
+    function storeAndDisplayFormData() {
+        var username = $(`#username`).val();
+        var password = $(`#password`).val();
+
+        document.cookie = 'username=' + username + '; expires=sun, 1 january 2030 12:00:00 UTC; path=/';
+        document.cookie = 'password=' + password + '; expires=sun, 1 january 2030 12:00:00 UTC; path=/';
+    }
+
+    window.onload = function () {
+        var username = getCookie('username');
+        var password = getCookie('password');
+
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = password;
+    };
+
+    function getCookie(name) {
+        let cookie = {};
+        document.cookie.split(';').forEach(function (el) {
+            let [key, value] = el.split('=');
+            cookie[key.trim()] = value;
+        });
+
+        return cookie[name];
+    }
+</script>
+
+</body>
+</html>

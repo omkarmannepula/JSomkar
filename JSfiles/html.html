@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+  <link rel="stylesheet" href="html.css">
+  <title>MCUBE.com</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+  <!--<style>
+    button{
+    display: block;
+    margin: auto;
+    }
+    
+  </style>  -->
+
+  <body bgcolor="skyblue"> 
+    
+          <h1 align="center" font="30"> VMC TECHNOLOGIES</h1>
+          <style>
+            .my-button {
+              display: flex;
+              
+              padding: 10px 20px; 
+              font-size: 20px;
+              cursor: pointer;
+              border: none;
+              align-items: center;
+              border-radius: 4px;
+              background-color: rgb(143, 208, 140);
+              margin-top: 2%;
+        }
+    .username{
+      display: flex;
+              /* justify-content: center; */
+              padding: 10px 20px; 
+              font-size: 20px;
+              cursor: pointer;
+              border: none;
+              border-radius: 4px;
+              background-color: #d4d582;
+              align-items: center;
+              margin-top: 8%;
+    }
+    .password{
+      display: flex;
+              justify-content: center;
+              padding: 10px 20px; 
+              font-size: 20px;
+              cursor: pointer;
+              border: none;
+              border-radius: 4px;
+              background-color: #d0d0b0;
+              align-items: center;
+              margin-top: 2%;
+
+    }
+  </style>
+    
+          
+          <!-- <div class="form-details"> 
+
+       <form class="login-form" .onsubmit="myfunc(event)">
+       <center>
+      <input class="username" type="text" id="username"placeholder="username">
+    </center>
+    <center>
+    <input class="password" id="password" type="password" placeholder="Password..">
+  </center>
+  <center>
+   
+  </center>
+  <center>
+    <button class="my-button" type="submit" onclick="displayFormData">SUBMIT</button>
+  </center>
+</form>
+          </div>  -->
+
+          <form id="myForm">
+            <center>
+            <!-- <label for="username">User:</label> -->
+
+            <input class="username" type="text" id="username" name="username" placeholder="username" >
+          </center>
+          <center>
+            <!-- <label for="password">Password:</label> -->
+            <input class="password" type="password" id="password" name="password" placeholder="Password..">
+          </center>
+        <center>
+            <button class="my-button" type="button" onclick="displayFormData()">Submit</button>
+          </center>
+          </form>
+        
+          <div id="display-container">
+            </div>
+          
+
+    <!-- <script>
+      function myfunc(event) {
+        event.preventDefault();
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        localStorage.setItem('username', username);
+        localStorage.setItem('Password', password);
+      }
+
+</script>   -->
+
+      <!-- var xhttp = new XMLHttpRequest(); 
+      Xhttp .onreadyStatechange =function(xhttp){
+        if(this.readystate == 4 && this.status == 200){
+          document.getElementById("demo").innerHTML=this.responseText;
+        }
+      }
+      xhttp.open("GET","C:\Program Files\JSfiles", true);
+      xhttp.send();-->
+     
+     <!-- <script>  
+      function displayFormData() {
+        // Get form data
+        var username = $('#username').val();
+        var password = $('#password').val();
+  
+        // Display form data
+        
+        // var displayContent  = '<p>Username: ' + username + '</p><p>Password: ' + password + '</p>';  
+        // $('#display-container').html(displayContent); 
+      
+      }
+    </script> -->
+  
+      
+      
+    <!-- <script> 
+      function displayCredentials(event) {
+        event.preventDefault();
+        
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+    
+        alert("Username: " + username + "\nPassword: " + password);
+      }
+      
+    </script>-->
+    
+    <!-- <script src="html.js"></script> -->
+  </body>
+</html>

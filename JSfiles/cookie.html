@@ -1,0 +1,198 @@
+<!-- <!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example</title>
+</head>
+<body>
+
+  <script>
+    // Set a cookie
+    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/";
+
+    // Get a specific cookie by name
+    function getCookie(name) {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    }
+
+    // Get and log the value of the "username" cookie
+    var username = getCookie("username");
+    console.log(username);
+
+    // Delete the "username" cookie
+    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  </script>
+
+</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example: User Preferences</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Choose Your Preferred Background Color</h2>
+
+  Color options
+  <label>
+    <input type="radio" name="color" value="lightblue" onclick="setBackgroundColor('lightblue')"> Light Blue
+  </label>
+  <label>
+    <input type="radio" name="color" value="lightgreen" onclick="setBackgroundColor('lightgreen')"> Light Green
+  </label>
+  <label>
+    <input type="radio" name="color" value="lightcoral" onclick="setBackgroundColor('lightcoral')"> Light Coral
+  </label>
+
+  Display current preference
+  <div id="currentPreference"></div>
+
+  <script>
+    // Function to set background color and store preference in a cookie
+    function setBackgroundColor(color) {
+      // Set background color
+      document.body.style.backgroundColor = color;
+
+      // Store preference in a cookie with a one-week expiration
+      var expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 7);
+      document.cookie = `backgroundColor=${color}; expires=${expirationDate.toUTCString()}; path=/`;
+
+      // Display current preference
+      displayCurrentPreference();
+    }
+
+    // Function to get and display the current preference from the cookie
+    function displayCurrentPreference() {
+      var backgroundColor = getCookie("backgroundColor");
+      var displayElement = document.getElementById("currentPreference");
+
+      if (backgroundColor) {
+        displayElement.innerHTML = `Your current preference is ${backgroundColor}.`;
+      } else {
+        displayElement.innerHTML = "No preference set.";
+      }
+    }
+
+    // Function to get a specific cookie by name
+    function getCookie(name) {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    }
+
+    // Display the current preference on page load
+    displayCurrentPreference();
+  </script>
+
+</body>
+ <!-- </html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Example: Theme Preferences</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: background-color 0.5s;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Choose Your Preferred Theme</h2>
+
+  <!-- Theme options -->
+  <label>
+    <input type="radio" name="theme" value="light" onclick="setTheme('light')"> Light Theme
+  </label>
+  <label>
+    <input type="radio" name="theme" value="dark" onclick="setTheme('dark')"> Dark Theme
+  </label>
+
+  <!-- Display current preference -->
+  <div id="currentPreference"></div>
+
+  <script>
+    // Function to set theme and store preference in a cookie
+    function setTheme(theme) {
+      // Set theme
+      document.body.classList.remove('light', 'dark');
+      document.body.classList.add(theme);
+
+      // Store preference in a cookie with a one-week expiration
+      var expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 7);
+      document.cookie = `theme=${theme}; expires=${expirationDate.toUTCString()}; path=/`;
+
+      // Display current preference
+      displayCurrentPreference();
+    }
+
+    // Function to get and display the current preference from the cookie
+    function displayCurrentPreference() {
+      var theme = getCookie("theme");
+      var displayElement = document.getElementById("currentPreference");
+
+      if (theme) {
+        displayElement.innerHTML = `Your current theme preference is ${theme}.`;
+      } else {
+        displayElement.innerHTML = "No theme preference set.";
+      }
+    }
+
+    // Function to get a specific cookie by name
+    function getCookie(name) {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    }
+
+    // Display the current preference on page load
+    displayCurrentPreference();
+  </script>
+
+</body>
+</html> 
+
+
